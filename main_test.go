@@ -3,7 +3,6 @@ package main_test
 import (
     "os"
     "log"
-    "fmt"
     "testing"
     "net/http"
     "net/http/httptest"
@@ -45,10 +44,8 @@ func ensureTableExists() {
 }
 
 func clearTable() {
-    fmt.Println("Clearing table")
     app.DB.Exec("DELETE FROM products")
     app.DB.Exec("ALTER SEQUENCE products_id_seq RESTART WITH 1")
-    fmt.Println("Table Cleared")
 }
 
 func executeRequest(req *http.Request) *httptest.ResponseRecorder {

@@ -19,7 +19,6 @@ type App struct {
 func (app *App) Initialize(user, password, dbname string) {
     connectionString :=
         fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable", user, password, dbname)
-    fmt.Println(connectionString)
 
     var err error
     app.DB, err = sql.Open("postgres", connectionString)
@@ -76,7 +75,6 @@ func (app *App) getProduct(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    fmt.Println(p)
     respondWithJSON(w, http.StatusOK, p)
 }
 
