@@ -3,7 +3,7 @@
 -- ====  UP  ====
 
 BEGIN;
-    CREATE TABLE products
+    CREATE TABLE IF NOT EXISTS products
     (
         id SERIAL,
         name TEXT NOT NULL,
