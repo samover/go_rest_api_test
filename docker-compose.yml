@@ -1,0 +1,10 @@
+postgres:
+  image: sameersbn/postgresql
+  ports:
+  - "5432:5432"
+  environment:
+    - DB_USER=developer
+    - DB_PASS=test
+    - DB_NAME=go_rest
+  volumes:
+    - ./data/postgres:/var/lib/postgresql/data
