@@ -119,8 +119,6 @@ func TestCreateProduct(t *testing.T) {
     var m map[string]interface {}
     json.Unmarshal(response.Body.Bytes(), &m)
 
-    fmt.Println(m)
-
     if m["name"] != "test product" {
         t.Errorf("Expected product name to be 'test product'. Got '%v'", m["name"])
     }
@@ -192,5 +190,5 @@ func TestDeleteProduct(t *testing.T) {
 
     req, _ = http.NewRequest("GET", "/product/1", nil)
     response = executeRequest(req)
-    checkResponseCode(t, http.StatusOK, response.Code)
+    checkResponseCode(t, http.StatusNotFound, response.Code)
 }
